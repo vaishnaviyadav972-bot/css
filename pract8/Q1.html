@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="app1">
+<head>
+    <title>Full Name Capital</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-controller="ctrl1">
+
+First Name:
+<input type="text" ng-model="fname">
+
+Last Name:
+<input type="text" ng-model="lname">
+
+<p>
+    Full Name:
+    <b>{{ (fname + ' ' + lname) | uppercase }}</b>
+</p>
+
+<script>
+angular.module("app1", [])
+.controller("ctrl1", function($scope){
+    $scope.fname = "";
+    $scope.lname = "";
+});
+</script>
+
+</body>
+</html>

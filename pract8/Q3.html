@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="app3">
+<head>
+    <title>Date Format</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-controller="ctrl3">
+
+<p>
+    Today Date:
+    <b>{{ today | date:'MM/dd/yyyy' }}</b>
+</p>
+
+<script>
+angular.module("app3", [])
+.controller("ctrl3", function($scope){
+    $scope.today = new Date();
+});
+</script>
+
+</body>
+</html>

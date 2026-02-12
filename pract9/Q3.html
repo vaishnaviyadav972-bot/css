@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="clickApp">
+<head>
+    <title>AngularJS Click Event</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-controller="clickCtrl" style="text-align:center;">
+
+<h2>Button Click Event Demo</h2>
+
+<button ng-click="changeColor()"
+        style="padding:10px; background-color:{{btnColor}};">
+    Click Me
+</button>
+
+<script>
+var app = angular.module("clickApp", []);
+
+app.controller("clickCtrl", function($scope) {
+    $scope.btnColor = "lightblue";
+
+    $scope.changeColor = function() {
+        $scope.btnColor =
+            ($scope.btnColor === "lightblue") ? "lightgreen" : "lightblue";
+    };
+});
+</script>
+
+</body>
+</html>

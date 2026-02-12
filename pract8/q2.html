@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="app2">
+<head>
+    <title>Currency Format</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-controller="ctrl2">
+
+Enter Amount:
+<input type="number" ng-model="amount">
+
+<p>
+    Amount in Currency:
+    <b>{{ amount | currency:'₹' }}</b>
+</p>
+
+<script>
+angular.module("app2", [])
+.controller("ctrl2", function($scope){
+    $scope.amount = "";
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Case Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+        }
+        input, button {
+            padding: 8px;
+            font-size: 16px;
+        }
+        p {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Case Converter</h2>
+
+<input type="text" id="name" placeholder="Enter your name"> <br><br>
+<button onclick="convertCase()">Submit</button>
+
+
+<p><b>UPPERCASE:</b> <span id="upper"></span></p>
+<p><b>lowercase:</b> <span id="lower"></span></p>
+<p><b>Sentence case:</b> <span id="sentence"></span></p>
+<p><b>Title Case:</b> <span id="title"></span></p>
+
+<script>
+function convertCase() {
+    let text = document.getElementById("name").value;
+
+    if (text === "") {
+        alert("Please enter a name");
+        return;
+    }
+
+    // Uppercase
+    document.getElementById("upper").innerText = text.toUpperCase();
+
+    // Lowercase
+    document.getElementById("lower").innerText = text.toLowerCase();
+
+    // Sentence case
+    document.getElementById("sentence").innerText =
+        text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+
+    // Title case
+    let titleCase = text.toLowerCase().split(" ").map(function(word) {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+    }).join(" ");
+
+    document.getElementById("title").innerText = titleCase;
+}
+</script>
+
+</body>
+</html>

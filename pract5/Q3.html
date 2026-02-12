@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>Submit Button Validation</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="formCtrl">
+
+<h2>Contact Form</h2>
+
+<form>
+    Name:
+    <input type="text" ng-model="name"><br><br>
+
+    Email:
+    <input type="email" ng-model="email"><br><br>
+
+    Message:
+    <textarea ng-model="msg"></textarea><br><br>
+
+    <button ng-click="submit()">Submit</button>
+
+    <p style="color:red">{{error}}</p>
+    <p style="color:green">{{success}}</p>
+</form>
+
+<script>
+var app = angular.module("myApp", []);
+
+app.controller("formCtrl", function($scope) {
+    $scope.submit = function() {
+        if (!$scope.name || !$scope.email || !$scope.msg) {
+            $scope.error = "All fields are mandatory";
+            $scope.success = "";
+        } else {
+            $scope.success = "Form Submitted Successfully!";
+            $scope.error = "";
+        }
+    };
+});
+</script>
+
+</body>
+</html>
